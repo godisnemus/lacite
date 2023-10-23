@@ -1,0 +1,8 @@
+
+# Navigate to Desktop directory - PowerShell
+cd 'C:\Users\Administrator\Desktop\'
+
+# Curl Docker installation script
+curl -o lab11-script.sh https://raw.githubusercontent.com/godisnemus/lacite/code/lab11/11-lab_script.sh
+
+# SSH to Ubuntu VM with MobaXterm
