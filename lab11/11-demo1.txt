@@ -6,3 +6,50 @@ cd 'C:\Users\Administrator\Desktop\'
 curl -o lab11-script.sh https://raw.githubusercontent.com/godisnemus/lacite/code/lab11/11-lab_script.sh
 
 # SSH to Ubuntu VM with MobaXterm
+
+# Copy Docker script to Ubuntu and execute it
+
+#Test docker isntallation
+### sudo docker run hello-world
+
+# Server vs Client
+sudo docker version
+
+# Busybox
+# BusyBox combines tiny versions of many common UNIX utilities into a single small executable
+sudo docker pull busybox
+
+# The pull command fetches the busybox image from the Docker registry and saves it to our system. 
+# You can use the docker images command to see a list of all images on your system.
+sudo docker images
+
+# Running Docker containers
+# When you call run, the Docker client finds the image (busybox in this case), loads up the container and then runs a command in that container. 
+# When we run docker run busybox, we didn't provide a command, so the container booted up, ran an empty command and then exited.
+sudo docker run busybox
+
+# Running BusyBox with command
+# In this case, the Docker client dutifully ran the echo command in our busybox container and then exited it. 
+# If you've noticed, all of that happened pretty quickly. Imagine booting up a virtual machine, running a command and then killing it.
+sudo docker run busybox echo "Hello from BusyBox"
+
+# Docker processes
+# So what we see above is a list of all containers that we ran. Do notice that the STATUS column shows that these containers exited a few minutes ago
+sudo docker ps -a
+
+# Running the run command with the -it flags attaches us to an interactive tty in the container. 
+# Now we can run as many commands in the container as we want. Take some time to run your favorite commands.
+sudo docker run -it busybox sh
+
+# Commands ot run inside container
+echo 'Hello from inside'
+ifconfig
+top
+exit
+
+# Clean up dead containers
+# We saw above that we can still see remnants of the container even after we've exited by running docker ps -a. 
+# Throughout this tutorial, you'll run docker run multiple times and leaving stray containers will eat up disk space.
+sudo docker ps -a
+sudo docker container prune
+sudo docker ps -a

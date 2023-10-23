@@ -1,0 +1,40 @@
+# WebApp
+# Pull image; a single-page static website application
+sudo docker pull prakhar1989/static-site
+
+# List existing Docker images
+sudo docker images 
+
+# Run the WebApp; 
+# --rm = automatically deletes containers when exiting;
+# -it = allows you to interact via terminal with conatainer
+sudo docker run --rm -it rakhar1989/static-site
+
+# List container processes; ensure it is dead and has been deleted
+sudo docker ps -a
+
+# Run WebApp in background;
+# -p = Define custom port mapping
+# -d = Run container in detach mode (background)
+# --name = give a name to the container
+sudo docker run -p 8080:80 -d --name static-site prakhar1989/static-site
+
+# List container processes; ensure that is alive
+sudo docker ps -a
+
+# Verify port mapping
+sudo docker port static-site
+
+# Find Ubuntu-VM IP
+ifconfig
+
+# Launch Chrome and navigate to the following URL: http://<ubuntuip>:8080
+
+# Stop WebApp container
+docker stop static-site
+
+# Re-launch Chrome and navigate to the following URL: http://<ubuntuip>:8080
+
+# Cleanup
+sudo docker container prune
+sudo docker ps -a
