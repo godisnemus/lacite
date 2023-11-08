@@ -1,0 +1,5 @@
+# Navigate to Desktop directory - PowerShell
+cd 'C:\Users\Administrator\Desktop\'
+
+# Curl Docker installation script
+curl -o lab12-script.sh https://raw.githubusercontent.com/godisnemus/lacite/code/lab12/12-lab_script.sh
