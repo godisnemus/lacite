@@ -85,7 +85,10 @@ sleep 3
 # Kubernetes readiness
 kubectl get all --namespace kube-system
 sleep 3
-# kubectl taint nodes --all node-role.kubernetes.io/control-plane-node/<...MASTER-NODE-NAME..> untainted
+
+# kubectl taint nodes --all node-role.kubernetes.io/control-plane-node/ubuntu-vm untainted
+kubectl taint nodes ubuntu-vm node-role.kubernetes.io/control-plane-
+sleep 3
 
 # Reboot
 sudo reboot
