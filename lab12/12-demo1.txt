@@ -17,7 +17,7 @@ sudo ./install.sh
 kubectl version
 
 # Check for nodes
-kuebctl get nodes
+kubectl get nodes
 
 # Check for systems pods
 kubectl get pods -n kube-system
@@ -55,9 +55,6 @@ kubectl describe pod
 # Create a service
 vim service.yaml
 
-# Deploy service
-kubectl apply -f service.yaml
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -70,6 +67,9 @@ spec:
     protocol: TCP
   selector:
     run: webapp
+
+# Deploy service
+kubectl apply -f service.yaml
 
 #Verify service
 kubectl get service
